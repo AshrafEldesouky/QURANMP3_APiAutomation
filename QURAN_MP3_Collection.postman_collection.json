@@ -1,0 +1,2038 @@
+{
+	"info": {
+		"_postman_id": "de4b13a6-2bc3-4ec1-ab15-04b3c12ea8e3",
+		"name": "QURAN_MP3_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7026690",
+		"_collection_link": "https://martian-desert-966528.postman.co/workspace/QURAN_MP3_Workspace~231b977a-38b1-4853-9a41-ffcc67ce77fe/collection/7026690-de4b13a6-2bc3-4ec1-ab15-04b3c12ea8e3?action=share&source=collection_link&creator=7026690"
+	},
+	"item": [
+		{
+			"name": "Languages",
+			"item": [
+				{
+					"name": "1 - Languages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[langauges_Get_Languages_Request]: Check Status code of get langauge request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[langauges_Get_Languages_Request]: Check Status message of get langauge request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[langauges_Get_Languages_Request]: Check if response Body is an object not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//4-First Test Case check schema validatoin the properties are exsiting \r",
+									"pm.test(\"4.[langauges_Get_Languages_Request]: Check response schema has property language\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"language\")\r",
+									"})\r",
+									"pm.test(\"5.[langauges_Get_Languages_Request]: Check response schema has property language[i].id \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"id\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"6.[langauges_Get_Languages_Request]: Check response schema has property language[i].language \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"language\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"7.[langauges_Get_Languages_Request]: Check response schema has property language[i].native \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"native\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"8.[langauges_Get_Languages_Request]: Check response schema has property language[i].surah \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"surah\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"9.[langauges_Get_Languages_Request]: Check response schema has property language[i].rewayah \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"rewayah\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"10.[langauges_Get_Languages_Request]: Check response schema has property language[i].reciters \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"reciters\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"11.[langauges_Get_Languages_Request]: Check response schema has property language[i].radios \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"radios\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"12.[langauges_Get_Languages_Request]: Check response schema has property language[i].tafasir \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i]).to.have.property(\"tafasir\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"// because the object and array contain properties\r",
+									"pm.test(\"13.[langauges_Get_Languages_Request]: Check language array in Response has value is not equal null\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).language).to.not.equal(null)\r",
+									"})\r",
+									"pm.test(\"14.[langauges_Get_Languages_Request]: Check language[i].ID property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].id).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"15.[langauges_Get_Languages_Request]: Check language[i].language property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].language).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"16.[langauges_Get_Languages_Request]: Check language[i].native property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].native).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"17.[langauges_Get_Languages_Request]: Check language[i].surah property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].surah).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"18.[langauges_Get_Languages_Request]: Check language[i].rewayah property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].rewayah).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"19.[langauges_Get_Languages_Request]: Check language[i].reciters property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].reciters).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"20.[langauges_Get_Languages_Request]: Check language[i].radios property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].radios).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"21.[langauges_Get_Languages_Request]: Check language[i].tafasir property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].radtafasirios).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"pm.test(\"22.[langauges_Get_Languages_Request]: Check the response has language array attribute is not undefined\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).language).to.not.be.undefined;\r",
+									"});\r",
+									"pm.test(\"23.[langauges_Get_Languages_Request]: Check the response has language[i].id property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].id).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"24.[langauges_Get_Languages_Request]: Check the response has language[i].language property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].language).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"25.[langauges_Get_Languages_Request]: Check the response has language[i].native property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].native).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"26.[langauges_Get_Languages_Request]: Check the response has language[i].surah property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].surah).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"27.[langauges_Get_Languages_Request]: Check the response has language[i].rewayah property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].rewayah).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"28.[langauges_Get_Languages_Request]: Check the response has language[i].reciters property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].reciters).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"29.[langauges_Get_Languages_Request]: Check the response has language[i].radios property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].radios).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"30.[langauges_Get_Languages_Request]: Check the response has language[i].tafasir property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).language[i].tafasir).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"//************************************************************************************************************/\r",
+									"//7.Check all response values have expected data type\r",
+									"pm.test(\"31.[langauges_Get_Languages_Request]: Check the response datatype of the language array is object \", function () {\r",
+									"    // console.log(typeof JSON.parse(responseBody).id)\r",
+									"    pm.expect(typeof JSON.parse(responseBody).language).to.equal(\"object\")\r",
+									"})\r",
+									"pm.test(\"32.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].id array is object' \", function () {\r",
+									"    // console.log(typeof JSON.parse(responseBody).id)\r",
+									"    pm.expect(typeof JSON.parse(responseBody).language).to.equal(\"object\")\r",
+									"})\r",
+									"pm.test(\"33.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].language property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].language).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"34.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].native property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].native).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"35.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].surah property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].surah).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"36.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].rewayah property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].rewayah).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"37.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].reciters property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].reciters).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"38.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].radios property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {0\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].radios).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"39.[langauges_Get_Languages_Request]: Check the response datatype of the language[i].tafasir property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).language.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).language[i].tafasir).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//8.Check The values as expected \r",
+									"// pm.test(\"31.Check the response value of ID has value as expected\", function () {\r",
+									"//     console.log(JSON.parse(responseBody).id)\r",
+									"//     pm.expect(JSON.parse(request.data).id).to.equal(JSON.parse(responseBody).id)\r",
+									"// })\r",
+									"//************************************************************************************************************/\r",
+									"// Business test case\r",
+									"//9-Check length of all attributes at Response body not less than 5 digit"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/api/v3/languages"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1 - Surah",
+			"item": [
+				{
+					"name": "1 - Suwar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Suwar_Get_Suwar_Request]: Check Status code of get langauge request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Suwar_Get_Suwar_Request]: Check Status message of get langauge request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Suwar_Get_Suwar_Request]: Check if response Body is an object not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//4-First Test Case check schema validatoin the properties are exsiting \r",
+									"pm.test(\"4.[Suwar_Get_Suwar_Request]: Check response schema has property suwar\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"suwar\")\r",
+									"})\r",
+									"pm.test(\"5.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].id \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"id\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"6.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].name \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"name\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"7.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].start_page \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"start_page\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"8.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].surah \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"end_page\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"9.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].rewayah \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"makkia\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"10.[Suwar_Get_Suwar_Request]: Check response schema has property suwar[i].reciters \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i]).to.have.property(\"type\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"// because the object and array contain properties\r",
+									"pm.test(\"11.[Suwar_Get_Suwar_Request]: Check suwar array in Response has value is not equal null\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).suwar).to.not.equal(null)\r",
+									"})\r",
+									"pm.test(\"12.[Suwar_Get_Suwar_Request]: Check suwar[i].ID property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].id).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"13.[Suwar_Get_Suwar_Request]: Check suwar[i].name property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].name).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"14.[Suwar_Get_Suwar_Request]: Check suwar[i].start_page property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].start_page).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"15.[Suwar_Get_Suwar_Request]: Check suwar[i].end_page property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].end_page).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"16.[Suwar_Get_Suwar_Request]: Check suwar[i].makkia property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].makkia).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"17.[Suwar_Get_Suwar_Request]: Check suwar[i].type property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].type).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"pm.test(\"18.[Suwar_Get_Suwar_Request]: Check the response has suwar array attribute is not undefined\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).suwar).to.not.be.undefined;\r",
+									"});\r",
+									"pm.test(\"19.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].id property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].id).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"20.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].name property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].name).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"21.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].start_page property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].start_page).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"22.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].end_page property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].end_page).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"23.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].makkia property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].makkia).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"24.[Suwar_Get_Suwar_Request]: Check the response has suwar[i].type property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).suwar[i].type).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"//************************************************************************************************************/\r",
+									"//7.Check all response values have expected data type\r",
+									"pm.test(\"25.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar array is object \", function () {\r",
+									"    // console.log(typeof JSON.parse(responseBody).id)\r",
+									"    pm.expect(typeof JSON.parse(responseBody).suwar).to.equal(\"object\")\r",
+									"})\r",
+									"pm.test(\"26.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].id number is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].id).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"27.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].name property is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].name).to.equal(\"string\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"28.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].start_page property is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].start_page).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"29.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].end_page property is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].end_page).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"30.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].rewayah property is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].makkia).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"31.[Suwar_Get_Suwar_Request]: Check the response datatype of the suwar[i].reciters property is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).suwar.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).suwar[i].type).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//8.Check The values as expected \r",
+									"// pm.test(\"31.Check the response value of ID has value as expected\", function () {\r",
+									"//     console.log(JSON.parse(responseBody).id)\r",
+									"//     pm.expect(JSON.parse(request.data).id).to.equal(JSON.parse(responseBody).id)\r",
+									"// })\r",
+									"//************************************************************************************************************/\r",
+									"// Business test case\r",
+									"//9-Check length of all attributes at Response body not less than 5 digit"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/suwar?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"suwar"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rewayah",
+			"item": [
+				{
+					"name": "1 - riwayat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Rewayah_Get_riwayat_Request]: Check Status code of get langauge request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Rewayah_Get_riwayat_Request]: Check Status message of get langauge request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Rewayah_Get_riwayat_Request]: Check if response Body is an object not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//4-First Test Case check schema validatoin the properties are exsiting \r",
+									"pm.test(\"4.[Rewayah_Get_riwayat_Request]: Check response schema has property riwayat\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody)).to.have.property(\"riwayat\")\r",
+									"})\r",
+									"pm.test(\"5.[Rewayah_Get_riwayat_Request]: Check response schema has property riwayat[i].id \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i]).to.have.property(\"id\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"5.[Rewayah_Get_riwayat_Request]: Check response schema has property riwayat[i].name \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i]).to.have.property(\"name\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"// because the object and array contain properties\r",
+									"pm.test(\"11.[Rewayah_Get_riwayat_Request]: Check riwayat array in Response has value is not equal null\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).riwayat).to.not.equal(null)\r",
+									"})\r",
+									"pm.test(\"12.[Rewayah_Get_riwayat_Request]: Check riwayat[i].ID property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i].id).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"12.[Rewayah_Get_riwayat_Request]: Check riwayat[i].name property in Response has value is not equal null\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.name; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i].name).to.not.equal(null)\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"pm.test(\"18.[Rewayah_Get_riwayat_Request]: Check the response has riwayat array attribute is not undefined\", function () {\r",
+									"    pm.expect(JSON.parse(responseBody).riwayat).to.not.be.undefined;\r",
+									"});\r",
+									"pm.test(\"19.[Rewayah_Get_riwayat_Request]: Check the response has riwayat[i].id property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i].id).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"19.[Rewayah_Get_riwayat_Request]: Check the response has riwayat[i].name property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody).riwayat[i].name).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"//************************************************************************************************************/\r",
+									"//7.Check all response values have expected data type\r",
+									"pm.test(\"25.[Rewayah_Get_riwayat_Request]: Check the response datatype of the riwayat array is object \", function () {\r",
+									"    // console.log(typeof JSON.parse(responseBody).id)\r",
+									"    pm.expect(typeof JSON.parse(responseBody).riwayat).to.equal(\"object\")\r",
+									"})\r",
+									"pm.test(\"26.[Rewayah_Get_riwayat_Request]: Check the response datatype of the riwayat[i].id number is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).riwayat[i].id).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"26.[Rewayah_Get_riwayat_Request]: Check the response datatype of the riwayat[i].name number is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).riwayat.length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody).riwayat[i].name).to.equal(\"string\")\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/riwayat?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"riwayat"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Moshaf",
+			"item": [
+				{
+					"name": "1 - moshaf",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Moshaf_Get_moshaf_Request]: Check Status code of get Moshaf request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Moshaf_Get_moshaf_Request]: Check Status message of get Moshaf request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Moshaf_Get_moshaf_Request]: Check if response Body is an object not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//4-First Test Case check schema validatoin the properties are exsiting \r",
+									"pm.test(\"5.[Moshaf_Get_moshaf_Request]: Check response schema has property response[i].id \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i]).to.have.property(\"id\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"5.[Moshaf_Get_moshaf_Request]: Check response schema has property response[i].name \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i]).to.have.property(\"moshaf_type\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"5.[Moshaf_Get_moshaf_Request]: Check response schema has property response[i].moshaf_type \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i]).to.have.property(\"moshaf_id\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"5.[Moshaf_Get_moshaf_Request]: Check response schema has property response[i].moshaf_type \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i]).to.have.property(\"name\")\r",
+									"    }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"// because the object and array contain properties\r",
+									"pm.test(\"11.[Moshaf_Get_moshaf_Request]: Check responseBody[i].id in Response has value is not equal null\", function () {\r",
+									"     for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"     pm.expect(JSON.parse(responseBody)[i].id).to.not.equal(null)\r",
+									"     }\r",
+									"})\r",
+									"pm.test(\"11.[Moshaf_Get_moshaf_Request]: Check responseBody[i].moshaf_type in Response has value is not equal null\", function () {\r",
+									"     for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"     pm.expect(JSON.parse(responseBody)[i].moshaf_type).to.not.equal(null)\r",
+									"     }\r",
+									"})\r",
+									"pm.test(\"11.[Moshaf_Get_moshaf_Request]: Check responseBody[i].moshaf_id in Response has value is not equal null\", function () {\r",
+									"     for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"     pm.expect(JSON.parse(responseBody)[i].moshaf_id).to.not.equal(null)\r",
+									"     }\r",
+									"})\r",
+									"pm.test(\"11.[Moshaf_Get_moshaf_Request]: Check responseBody[i].name in Response has value is not equal null\", function () {\r",
+									"     for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"     pm.expect(JSON.parse(responseBody)[i].name).to.not.equal(null)\r",
+									"     }\r",
+									"})\r",
+									"//************************************************************************************************************/\r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"pm.test(\"19.[Moshaf_Get_moshaf_Request]: Check the response has responseBody[i].id property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i].id).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"19.[Moshaf_Get_moshaf_Request]: Check the response has responseBody[i].moshaf_type property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i].moshaf_type).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"19.[Moshaf_Get_moshaf_Request]: Check the response has responseBody[i].moshaf_id property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i].moshaf_id).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"19.[Moshaf_Get_moshaf_Request]: Check the response has responseBody[i].name property attribute is not undefined\", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(JSON.parse(responseBody)[i].name).to.not.be.undefined;\r",
+									"    }\r",
+									"});\r",
+									"//************************************************************************************************************/\r",
+									"//7.Check all response values have expected data type\r",
+									"pm.test(\"26.[Moshaf_Get_moshaf_Request]: Check the response datatype of the responseBody[i].id number is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody)[i].id).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"26.[Moshaf_Get_moshaf_Request]: Check the response datatype of the responseBody[i].moshaf_type number is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody)[i].moshaf_type).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"26.[Moshaf_Get_moshaf_Request]: Check the response datatype of the responseBody[i].moshaf_id number is number' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody)[i].moshaf_id).to.equal(\"number\")\r",
+									"    }\r",
+									"})\r",
+									"pm.test(\"26.[Moshaf_Get_moshaf_Request]: Check the response datatype of the responseBody[i].name number is string' \", function () {\r",
+									"    for (var i = 0; i < JSON.parse(responseBody).length; i++) {\r",
+									"        pm.expect(typeof JSON.parse(responseBody)[i].name).to.equal(\"string\")\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/moshaf?language=ar",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"moshaf"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "ar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reciters",
+			"item": [
+				{
+					"name": "1 - Reciters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/reciters?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"reciters"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - language and reciter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/reciters?language=eng&reciter=168",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"reciters"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								},
+								{
+									"key": "reciter",
+									"value": "168"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Language , reciter and rewaya",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/reciters?language=eng&reciter=199&rewaya=5",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"reciters"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								},
+								{
+									"key": "reciter",
+									"value": "199"
+								},
+								{
+									"key": "rewaya",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Language rewaya and sura",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/reciters?language=eng&rewaya=1&sura=18",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"reciters"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								},
+								{
+									"key": "rewaya",
+									"value": "1"
+								},
+								{
+									"key": "sura",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Language and sura",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/reciters?language=eng&sura=18",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"reciters"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								},
+								{
+									"key": "sura",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recent_reads",
+			"item": [
+				{
+					"name": "1 - recent_reads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/recent_reads"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Recent_reads and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/recent_reads?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"recent_reads"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Live-tv",
+			"item": [
+				{
+					"name": "1 - Live-tv",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/live-tv"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Live tv and langauge",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/live-tv?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"live-tv"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Radios",
+			"item": [
+				{
+					"name": "1 - radios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/radios"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - radios and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/radios?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"radios"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tafaseer",
+			"item": [
+				{
+					"name": "1 - tafasir",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/tafasir"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Tafasir and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/tafasir?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tafasir"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Tafsir , sura and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/tafsir?tafsir=5&sura=3&language=ar",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tafsir"
+							],
+							"query": [
+								{
+									"key": "tafsir",
+									"value": "5"
+								},
+								{
+									"key": "sura",
+									"value": "3"
+								},
+								{
+									"key": "language",
+									"value": "ar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tadabor",
+			"item": [
+				{
+					"name": "1 - tadabor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/tadabor"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Tadabor , sura and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/tadabor?sura=3&language=ar",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tadabor"
+							],
+							"query": [
+								{
+									"key": "sura",
+									"value": "3"
+								},
+								{
+									"key": "language",
+									"value": "ar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ayat_timing",
+			"item": [
+				{
+					"name": "1 - Ayat_timing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/ayat_timing"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - ayat_timing ,surah and read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/ayat_timing?surah=2&read=5",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"ayat_timing"
+							],
+							"query": [
+								{
+									"key": "surah",
+									"value": "2"
+								},
+								{
+									"key": "read",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video_types",
+			"item": [
+				{
+					"name": "1 - Video_types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/video_types"
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Video_types and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/video_types?language=eng",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"video_types"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "eng"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Videos",
+			"item": [
+				{
+					"name": "1 - Videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/api/v3/videos"
+					},
+					"response": []
+				},
+				{
+					"name": "1 - videos and language",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"//4- Test Case check schema validatoin the properties are exsiting \r",
+									"//5-Check all attributes in the response have not null value  except the object and array list \r",
+									"//6-Check if the \"properties\" field is not undefined\r",
+									"//7.Check all response values have expected data type\r",
+									"//8.Check The values as expected \r",
+									"//9. Business test case :Check length of all attributes at Response body not less than 5 digit\r",
+									"//10-Request Header Test Cases\r",
+									"//11-Response Header Test Cases:\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"\r",
+									"//***********************************************************************************************************/\r",
+									"\r",
+									"//1-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"1.[Reciters_Get_Reciters_Request]: Check Status code of get Reciters request is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//2-Check Status code is 200 as agreed with Backend team\r",
+									"pm.test(\"2.[Reciters_Get_Reciters_Request]: Check Status message of get Reciters request is OK\", function () {\r",
+									"    pm.response.to.have.status(\"OK\");\r",
+									"});\r",
+									"console.log(typeof pm.response.json());\r",
+									"//3-Check check schema validatoin the response is an array not object\r",
+									"pm.test(\"3.[Reciters_Get_Reciters_Request]: Check if response Body is an Reciters not array\", function () {\r",
+									"    pm.expect(typeof pm.response.json()).to.equal(\"object\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/v3/videos?language=ar",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "ar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

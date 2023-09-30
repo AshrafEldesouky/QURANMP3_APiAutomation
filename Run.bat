@@ -1,0 +1,1 @@
+newman run "QURAN_MP3_Collection.postman_collection.json" -e QURAN_MP3_Testing_ENV.postman_environment.json --reporters=cli,htmlextra
